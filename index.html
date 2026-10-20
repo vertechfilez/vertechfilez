@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07142c">
+<title>Vertech | TikTok Mod</title>
+<style>
+:root {
+  --blue: #65b7ff;
+  --cyan: #8cecff;
+  --bg: #050d1c;
+  --glass: rgba(19, 43, 79, .55);
+  --border: rgba(180, 220, 255, .17);
+  --text: #f2f7ff;
+  --muted: #9db2d2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  min-height: 100vh;
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(ellipse at 10% 0%, #123d76 0%, transparent 38%),
+    radial-gradient(ellipse at 90% 35%, #07354a 0%, transparent 35%),
+    linear-gradient(155deg, #050b18, #071a35 55%, #040914);
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+.container { width: min(1100px, 90%); margin: auto; }
+nav {
+  display: flex; justify-content: space-between;
+  align-items: center; padding: 25px 0;
+}
+.logo { display: flex; align-items: center; gap: 11px; font-weight: 850; letter-spacing: 2px; }
+.logo-icon {
+  width: 40px; height: 40px; display: grid; place-items: center;
+  border-radius: 14px; color: white; font-size: 23px;
+  background: linear-gradient(145deg, #5bc6ff, #2863e8);
+  box-shadow: 0 0 25px #398eff44;
+}
+.nav-link { color: #b8d5f8; font-size: 14px; }
+.hero {
+  display: grid; grid-template-columns: 1.1fr .9fr;
+  align-items: center; gap: 55px; padding: 75px 0 90px;
+}
+.tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 13px; border-radius: 50px;
+  border: 1px solid var(--border); background: #ffffff08;
+  color: #b6dfff; font-size: 12px; letter-spacing: 1.4px;
+  text-transform: uppercase; margin-bottom: 24px;
+}
+.tag span { width: 7px; height: 7px; border-radius: 50%; background: #69e7b0; }
+h1 {
+  font-size: clamp(46px, 7vw, 82px);
+  line-height: .98; letter-spacing: -5px;
+}
+.gradient {
+  color: transparent;
+  background: linear-gradient(100deg, #fff, #8bcaff, #68e9ff);
+  background-clip: text; -webkit-background-clip: text;
+}
+.description {
+  color: var(--muted); line-height: 1.8;
+  margin: 24px 0 29px; max-width: 520px;
+}
+.buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 10px; padding: 15px 22px; border-radius: 15px;
+  font-weight: 750; font-size: 14px; transition: .25s;
+  border: 1px solid transparent; cursor: pointer;
+}
+.btn:hover { transform: translateY(-3px); }
+.btn-primary {
+  color: #041225;
+  background: linear-gradient(115deg, #a5e2ff, #59b4ff, #7be9ff);
+  box-shadow: 0 9px 32px #388fff35, inset 0 1px #ffffff;
+}
+.btn-secondary {
+  border-color: var(--border); background: #ffffff08; color: #d5e9ff;
+  backdrop-filter: blur(15px);
+}
+.small-note { color: #728bac; font-size: 12px; margin-top: 18px; }
+.glass {
+  background: linear-gradient(145deg, rgba(28,61,105,.65), rgba(8,22,46,.7));
+  border: 1px solid var(--border);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 25px 80px #0005, inset 0 1px #ffffff12;
+}
+.preview {
+  padding: 23px; border-radius: 28px;
+  position: relative; overflow: hidden;
+  animation: float 6s ease-in-out infinite;
+}
+.preview-head { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #b4d0ef; }
+.preview-title { font-weight: 800; color: white; }
+.status { padding: 7px 10px; border-radius: 20px; background: #ffffff0b; border: 1px solid var(--border); font-size: 10px; }
+.mock-banner {
+  margin-top: 38px; padding: 24px; border-radius: 20px;
+  background: linear-gradient(130deg, #3d8fff48, #37dfff0d);
+  border: 1px solid #a7dcff29;
+}
+.mock-banner small { color: #87d9ff; text-transform: uppercase; letter-spacing: 2px; font-size: 10px; }
+.mock-banner h2 { font-size: 31px; letter-spacing: -1px; margin: 13px 0 8px; }
+.mock-banner p { color: #a8c3e5; font-size: 13px; line-height: 1.7; }
+.fake-lines { display: grid; gap: 12px; margin-top: 25px; }
+.fake-lines i { display: block; height: 9px; border-radius: 10px; background: #a9c7ef12; }
+.fake-lines i:nth-child(1) { width: 85%; }
+.fake-lines i:nth-child(2) { width: 65%; }
+.fake-lines i:nth-child(3) { width: 75%; }
+.liquid-bar {
+  margin-top: 27px; display: flex; justify-content: space-around;
+  align-items: center; padding: 15px; border-radius: 18px;
+  background: #8bbfff16; border: 1px solid #a7dfff35;
+  box-shadow: inset 0 1px #ffffff10, 0 0 30px #389dff0b;
+}
+.liquid-bar i { display: block; width: 9px; height: 9px; border-radius: 50%; background: #8bcaff; }
+.liquid-bar i:first-child { width: 27px; border-radius: 7px; background: #e2f7ff; box-shadow: 0 0 14px #64c3ff; }
+.section { padding: 35px 0 75px; }
+.section-label { color: #80caff; font-size: 11px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 13px; }
+.section h2 { font-size: clamp(27px, 4vw, 39px); letter-spacing: -1.5px; }
+.section-intro { color: var(--muted); line-height: 1.7; margin-top: 12px; max-width: 600px; font-size: 14px; }
+.features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 29px; }
+.feature { border-radius: 22px; padding: 23px; transition: .25s; }
+.feature:hover { transform: translateY(-5px); border-color: #80caff55; }
+.feature-icon {
+  width: 43px; height: 43px; display: grid; place-items: center;
+  border-radius: 14px; color: #a6dcff; font-size: 21px;
+  background: #4b9cff19; border: 1px solid #8acaff26; margin-bottom: 22px;
+}
+.feature h3 { font-size: 16px; margin-bottom: 10px; }
+.feature p { color: var(--muted); font-size: 13px; line-height: 1.7; }
+.download-card {
+  border-radius: 28px; padding: clamp(25px, 5vw, 42px);
+  display: flex; justify-content: space-between; align-items: center; gap: 30px;
+}
+.download-card h2 { margin-bottom: 12px; }
+.download-card p { color: var(--muted); font-size: 14px; line-height: 1.8; max-width: 620px; }
+.version-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+.version-tags span {
+  padding: 8px 11px; border-radius: 9px; border: 1px solid var(--border);
+  background: #ffffff06; color: #c6dcfa; font-size: 12px;
+}
+.credit {
+  border-left: 2px solid #65b7ff88; padding-left: 13px;
+  margin-top: 21px; font-size: 12px !important; color: #91a8c9 !important;
+}
+.download-area { min-width: 175px; text-align: center; }
+.download-area .btn { width: 100%; }
+footer {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 20px; padding: 27px 0 35px; margin-top: 35px;
+  border-top: 1px solid #ffffff12; color: #8197b6; font-size: 13px;
+}
+footer strong { color: #e2efff; }
+.follow { color: #a5d9ff; font-weight: 800; transition: .2s; }
+.follow:hover { color: white; text-shadow: 0 0 18px #64bfff; }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@media(max-width: 850px) {
+  .hero { grid-template-columns: 1fr; gap: 35px; padding: 50px 0 65px; }
+  .preview { max-width: 530px; width: 100%; margin: auto; }
+  .features { grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width: 560px) {
+  .container { width: 91%; }
+  h1 { letter-spacing: -3px; }
+  .features { grid-template-columns: 1fr; }
+  .feature { padding: 21px; }
+  .download-card { flex-direction: column; align-items: stretch; }
+  .download-area { width: 100%; }
+  footer { flex-direction: column; align-items: flex-start; }
+}
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <nav>
+    <a class="logo" href="#">
+      <span class="logo-icon">V</span>
+      VERTECH
+    </a>
+    <a class="nav-link" href="#features">Explore features ↗</a>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="tag"><span></span> A different TikTok experience</div>
+        <h1>Make it feel<br><span class="gradient">like yours.</span></h1>
+        <p class="description">
+          Discover a community-made TikTok mod with a liquid-glass-inspired
+          bar, customizable accent colors, banner updates, and more.
+          A clean new look, all in one place.
+        </p>
+        <div class="buttons">
+          <a href="#download" class="btn btn-primary">↓ &nbsp; Get the APK</a>
+          <a href="#features" class="btn btn-secondary">Explore features ↗</a>
+        </div>
+        <p class="small-note">Unofficial community download page · Not affiliated with TikTok</p>
+      </div>
+
+      <div class="preview glass">
+        <div class="preview-head">
+          <span class="preview-title">◈ Vertech</span>
+          <span class="status">● UI CONCEPT</span>
+        </div>
+        <div class="mock-banner">
+          <small>Personalize your experience</small>
+          <h2>Make it yours.</h2>
+          <p>Fresh colors. A glassy interface. Your own style.</p>
+        </div>
+        <div class="fake-lines"><i></i><i></i><i></i></div>
+        <div class="liquid-bar"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="preview-head" style="margin-top:23px">
+          <span>Liquid-inspired UI</span><span>Blue edition</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-label">What's inside</div>
+      <h2>Small details. New feel.</h2>
+      <p class="section-intro">
+        Explore some of the reported features of this beta build.
+        Actual availability may vary depending on the app version and device.
+      </p>
+
+      <div class="features">
+        <article class="feature glass">
+          <div class="feature-icon">◫</div>
+          <h3>Liquid Glass Bar</h3>
+          <p>A translucent, glass-inspired bar for a more modern interface.</p>
+        </article>
+        <article class="feature glass">
+          <div class="feature-icon">▤</div>
+          <h3>Banner Updates</h3>
+          <p>Updated banner styling that gives the experience a distinct look.</p>
+        </article>
+        <article class="feature glass">
+          <div class="feature-icon">◉</div>
+          <h3>Accent Colors</h3>
+          <p>Customize the accent color to better match your personal style.</p>
+        </article>
+        <article class="feature glass">
+          <div class="feature-icon">✧</div>
+          <h3>And More</h3>
+          <p>Explore additional tweaks included in this beta build.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="download">
+      <div class="download-card glass">
+        <div>
+          <div class="section-label">Ready when you are</div>
+          <h2>TikTok Mod <span class="gradient">Beta</span></h2>
+          <p>
+            Check the version details before installing. This is a third-party
+            modified APK, not an official TikTok release.
+          </p>
+          <div class="version-tags">
+            <span>Version 1.0.0</span>
+            <span>Beta 47.1.4</span>
+            <span>Android · APK</span>
+          </div>
+          <p class="credit">
+            <strong>Original creator credit:</strong> All credit for creating
+            the modded APK belongs to its original creator. Vertech did not
+            develop or modify this app. Please respect the original creator's
+            work and distribution terms. Modified APKs may carry security,
+            privacy, or account risks; install only if you trust the source.
+          </p>
+        </div>
+        <div class="download-area">
+          <!-- Replace YOUR_APK_DOWNLOAD_URL with your real direct download link -->
+          <a id="downloadButton" class="btn btn-primary"
+             href="YOUR_APK_DOWNLOAD_URL"
+             target="_blank" rel="noopener noreferrer">
+            ↓ &nbsp; Download APK
+          </a>
+          <p class="small-note">Version 1.0.0 · Beta 47.1.4</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> <strong>Vertech</strong> · Community download page</div>
+    <!-- Replace YOUR_SOCIAL_LINK with your real Vertech profile link -->
+    <a class="follow" id="followLink" href="YOUR_SOCIAL_LINK"
+       target="_blank" rel="noopener noreferrer">Follow Vertech ↗</a>
+  </footer>
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("downloadButton").addEventListener("click", function(event) {
+  if (this.getAttribute("href") === "YOUR_APK_DOWNLOAD_URL") {
+    event.preventDefault();
+    alert("Please add your APK download URL in index.html first.");
+  }
+});
+
+document.getElementById("followLink").addEventListener("click", function(event) {
+  if (this.getAttribute("href") === "YOUR_SOCIAL_LINK") {
+    event.preventDefault();
+    alert("Please add your Vertech profile URL in index.html first.");
+  }
+});
+</script>
+</body>
+</html>
